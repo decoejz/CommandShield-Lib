@@ -45,7 +45,7 @@ def process_raw_data(csv_file_path):
         elif alg_value == 2:
             return "ECDSA"
         elif alg_value == 3:
-            return "EDDSA"
+            return "EdDSA"
         else:
             return f"UNKNOWN({alg_value})"
 

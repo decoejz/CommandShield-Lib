@@ -67,9 +67,4 @@ def split_data(raw_data):
         ["operation"], axis=1
     )
 
-    # print("Autopilot SIGN: ", data["Autopilot"]["sign"].head())
-    # print("Autopilot VERIFY: ", data["Autopilot"]["verify"].head())
-    # print("GroundControl SIGN: ", data["GroundControl"]["sign"].head())
-    # print("GroundControl VERIFY: ", data["GroundControl"]["verify"].head())
-
     return data

@@ -1,13 +1,13 @@
 import matplotlib.pyplot as plt
+import seaborn as sns
 from definition import order, algorithms
 
 
-def graph_generator(data, log_data=False):
+def violin_generator(data, log_data=False):
     """
-    Generate graphs for the given data.
+    Generate a boxplot for the GroundControl verify operation based on the time.
     Parameters:
     data (dict): A dictionary containing the split data for Autopilot and GroundControl.
-    The structure of the dictionary is as follows:
     {
         'Autopilot': {
             'sign': DataFrame,
@@ -21,36 +21,34 @@ def graph_generator(data, log_data=False):
     Returns:
     None
     """
+    print("Generating violin plot...")
     for app in data.keys():
         for op in data[app].keys():
             operation = data[app][op]
 
-            # Prepare the data for plotting
             plt.figure(figsize=(10, 6))
 
             for alg in order:
                 alg_data = operation[operation["algorithm"] == alg]
 
                 if not alg_data.empty:
-                    plt.plot(
-                        alg_data["len"],
-                        alg_data["time"],
-                        marker=algorithms[alg]["marker"],
+                    sns.violinplot(
+                        x="algorithm",
+                        y="time",
+                        data=alg_data,
                         color=algorithms[alg]["color"],
-                        label=alg,
-                        linestyle="",
                     )
+
                     if log_data:
                         plt.yscale("log")
 
-            # Customize the plot
-            # plt.title(
-            #     f"{"Logarithmic " if log_data else ""}Time Performance ({app} - {op.capitalize()})"
-            # )
-            plt.title(f"{app} - {op.capitalize()}")
-            plt.xlabel("Message Size (bytes)")
-            plt.ylabel(f"Time {"Log"if log_data else ""} (μs)")
-            plt.legend()
-            plt.grid(True)
+                    # Customize the plot
+                    plt.title(
+                        f"{"Logarithmic " if log_data else ""}Violin plot of Time ({app} - {op.capitalize()})"
+                    )
+                    plt.suptitle("")  # Remove the default Pandas title
+                    plt.xlabel("Algorithm")
+                    plt.ylabel(f"Time {"Log"if log_data else ""} (μs)")
+                    plt.grid(True)
 
     plt.show()

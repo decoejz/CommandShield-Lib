@@ -57,7 +57,7 @@ for s in scenarios:
         palette=colors,
         alpha=color_alpha,
     )
-    plt.title(f"Scenario {s} - Time Consumption")
+    # plt.title(f"Scenario {s} - Time Consumption")
     plt.xlabel("Algorithm")
     plt.ylabel("Time (s)")
     plt.grid(axis="y", linestyle="--", alpha=0.7)
