@@ -44,9 +44,9 @@ def graph_generator(data, log_data=False):
                         plt.yscale("log")
 
             # Customize the plot
-            # plt.title(
-            #     f"{"Logarithmic " if log_data else ""}Time Performance ({app} - {op.capitalize()})"
-            # )
+            plt.title(
+                f"{"Logarithmic " if log_data else ""}Time Performance ({app} - {op.capitalize()})"
+            )
             plt.title(f"{app} - {op.capitalize()}")
             plt.xlabel("Message Size (bytes)")
             plt.ylabel(f"Time {"Log"if log_data else ""} (μs)")
