@@ -28,6 +28,7 @@ def extract_stats(data, scenario, alg):
 
 
 data_file = "data/mission_time.json"
+
 # Open JSON file and read data
 with open(data_file, "r") as f:
     scenarios = json.load(f)
@@ -57,7 +58,7 @@ for s in scenarios:
         palette=colors,
         alpha=color_alpha,
     )
-    # plt.title(f"Scenario {s} - Time Consumption")
+    plt.title(f"Scenario {s} - Time Consumption")
     plt.xlabel("Algorithm")
     plt.ylabel("Time (s)")
     plt.grid(axis="y", linestyle="--", alpha=0.7)

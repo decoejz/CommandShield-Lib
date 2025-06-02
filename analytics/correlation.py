@@ -24,7 +24,6 @@ def correlation_analysis(data):
     for app in data.keys():
         for op in data[app].keys():
             for alg in order:
-                # raw_data[raw_data["algorithm"] != "NO_SIGN"]
                 operation = data[app][op].copy()
                 operation = operation[operation["algorithm"] == alg]
                 operation = operation.drop(["app", "algorithm"], axis=1)

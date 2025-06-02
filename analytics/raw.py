@@ -66,9 +66,6 @@ def process_raw_data(csv_file_path):
 
     raw_data["encodede bits"] = raw_data["encoded"].apply(lambda x: format(x, "08b"))
 
-    # print(raw_data.head())
-    # print(raw_data.to_string(index=False))
-
     # Drop the temporary value columns
     raw_data = raw_data.drop(
         [
@@ -81,7 +78,5 @@ def process_raw_data(csv_file_path):
         ],
         axis=1,
     )
-
-    # print(raw_data.to_string(index=False))
 
     return raw_data
