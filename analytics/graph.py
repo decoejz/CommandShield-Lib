@@ -48,9 +48,14 @@ def graph_generator(data, log_data=False):
                 f"{"Logarithmic " if log_data else ""}Time Performance ({app} - {op.capitalize()})"
             )
             plt.title(f"{app} - {op.capitalize()}")
-            plt.xlabel("Message Size (bytes)")
+            plt.xlabel("Message Size (bytes)", fontsize=24, fontdict={"weight": "bold"})
             plt.ylabel(f"Time {"Log"if log_data else ""} (μs)")
-            plt.legend()
+            plt.xticks(fontsize=20)
+            plt.yticks(fontsize=20)
+            plt.legend(fontsize=20)
             plt.grid(True)
+            plt.subplots_adjust(
+                left=0.07, right=0.994, top=0.99, bottom=0.108, wspace=0.2, hspace=0.2
+            )
 
     plt.show()
