@@ -49,11 +49,7 @@ def graph_generator(data, log_data=False):
             )
             plt.title(f"{app} - {op.capitalize()}")
             plt.xlabel("Message Size (bytes)", fontsize=24, fontdict={"weight": "bold"})
-            plt.ylabel(
-                f"Time {"Log"if log_data else ""} (μs)",
-                fontsize=24,
-                fontdict={"weight": "bold"},
-            )
+            plt.ylabel(f"Time {"Log"if log_data else ""} (μs)")
             plt.xticks(fontsize=20)
             plt.yticks(fontsize=20)
             plt.legend(fontsize=20)
