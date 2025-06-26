@@ -58,9 +58,11 @@ for s in scenarios:
         palette=colors,
         alpha=color_alpha,
     )
-    plt.title(f"Scenario {s} - Time Consumption")
-    plt.xlabel("Algorithm")
-    plt.ylabel("Time (s)")
+    # Set font sizes for axes labels and ticks
+    plt.xlabel("Algorithm", fontsize=24, fontdict={"weight": "bold"})
+    plt.ylabel("Time (s)", fontsize=24, fontdict={"weight": "bold"})
+    plt.xticks(fontsize=20)
+    plt.yticks(fontsize=20)
     plt.grid(axis="y", linestyle="--", alpha=0.7)
 
     for alg in scenarios[s].keys():

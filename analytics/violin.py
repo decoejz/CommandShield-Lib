@@ -47,8 +47,22 @@ def violin_generator(data, log_data=False):
                         f"{"Logarithmic " if log_data else ""}Violin plot of Time ({app} - {op.capitalize()})"
                     )
                     plt.suptitle("")  # Remove the default Pandas title
-                    plt.xlabel("Algorithm")
-                    plt.ylabel(f"Time {"Log"if log_data else ""} (μs)")
+                    plt.xlabel("Algorithm", fontsize=24, fontdict={"weight": "bold"})
+                    plt.ylabel(
+                        f"Time {"Log"if log_data else ""} (μs)",
+                        fontsize=24,
+                        fontdict={"weight": "bold"},
+                    )
+                    plt.xticks(fontsize=20)
+                    plt.yticks(fontsize=20)
                     plt.grid(True)
+                    plt.subplots_adjust(
+                        left=0.075,
+                        right=0.995,
+                        top=0.99,
+                        bottom=0.11,
+                        wspace=0.2,
+                        hspace=0.2,
+                    )
 
     plt.show()
