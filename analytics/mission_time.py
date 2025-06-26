@@ -59,6 +59,7 @@ for s in scenarios:
         alpha=color_alpha,
     )
     # Set font sizes for axes labels and ticks
+    plt.title(f"Scenario {s} - Time Consumption")
     plt.xlabel("Algorithm", fontsize=24, fontdict={"weight": "bold"})
     plt.ylabel("Time (s)", fontsize=24, fontdict={"weight": "bold"})
     plt.xticks(fontsize=20)
